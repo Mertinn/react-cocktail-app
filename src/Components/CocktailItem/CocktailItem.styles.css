@@ -5,12 +5,17 @@
 }
 .cocktail__image {
   width: 100%;
+  transition: 500ms;
 }
 .cocktail__name {
   font-size: 1rem;
+  font-weight: bold;
 }
 .cocktail__header {
   background: white;
+}
+.cocktail:hover .cocktail__image {
+  transform: scaleX(-1);
 }
 
 /*# sourceMappingURL=CocktailItem.styles.css.map */
