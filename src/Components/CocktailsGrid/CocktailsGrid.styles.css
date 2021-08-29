@@ -1,6 +1,10 @@
 .cocktails {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 0.3fr;
+  grid-gap: 3rem 2rem;
+  overflow-y: scroll;
+  padding: 2rem 2rem 0;
 }
 
 /*# sourceMappingURL=CocktailsGrid.styles.css.map */

@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita"
+        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=ma"
       );
       const data = response.data;
       setCocktails(data);
@@ -39,7 +39,7 @@ function App() {
         <CocktailsGrid>
           {Object.keys(cocktails).length > 0 &&
             cocktails.drinks!.map((cocktail: ICocktail["cocktail"]) => (
-              <CocktailItem cocktail={cocktail} />
+              <CocktailItem cocktail={cocktail} key={cocktail.idDrink} />
             ))}
         </CocktailsGrid>
       </PageContainer>

@@ -1,5 +1,16 @@
 .cocktail {
-  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  height: fit-content;
+}
+.cocktail__image {
+  width: 100%;
+}
+.cocktail__name {
+  font-size: 1rem;
+}
+.cocktail__header {
+  background: white;
 }
 
 /*# sourceMappingURL=CocktailItem.styles.css.map */
