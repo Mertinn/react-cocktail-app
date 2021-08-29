@@ -1,0 +1,9 @@
+.page__container {
+  width: 80%;
+  height: 80vh;
+  box-shadow: 0 27px 192px -5px #000000ad;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
