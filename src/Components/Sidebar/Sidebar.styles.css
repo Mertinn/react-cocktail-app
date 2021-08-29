@@ -3,6 +3,14 @@
   color: white;
   height: 100%;
   width: 30%;
+  text-align: center;
+}
+.sidebar__list {
+  display: inline-block;
+  text-align: left;
+}
+.sidebar__header {
+  margin: 3rem 0;
 }
 
 /*# sourceMappingURL=Sidebar.styles.css.map */

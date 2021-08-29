@@ -1,0 +1,14 @@
+input {
+  background: #f96160;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  color: white;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.47);
+}
+
+/*# sourceMappingURL=Input.styles.css.map */
