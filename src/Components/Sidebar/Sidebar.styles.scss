@@ -1,0 +1,8 @@
+@use "../Variables.scss" as v;
+
+.sidebar {
+  background: v.$primary-color;
+  color: white;
+  height: 100%;
+  width: 30%;
+}
