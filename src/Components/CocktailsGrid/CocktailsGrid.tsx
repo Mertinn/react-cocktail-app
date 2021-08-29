@@ -4,8 +4,8 @@ interface IProps {
   children?: React.ReactNode;
 }
 
-const CoctailsGrid: React.FC<IProps> = ({ children }) => {
+const CocktailsGrid: React.FC<IProps> = ({ children }) => {
   return <div className={"cocktails"}> {children}</div>;
 };
 
-export default CoctailsGrid;
+export default CocktailsGrid;
