@@ -1,14 +1,19 @@
 input {
   background: #f96160;
-  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 1px white;
   border-radius: 5px;
   color: white;
   outline: none;
+  border: none;
   padding: 0.5rem;
   font-size: 1.2rem;
+  transition: 200ms;
 }
 input::placeholder {
   color: rgba(255, 255, 255, 0.47);
+}
+input:focus {
+  box-shadow: none;
 }
 
 /*# sourceMappingURL=Input.styles.css.map */
