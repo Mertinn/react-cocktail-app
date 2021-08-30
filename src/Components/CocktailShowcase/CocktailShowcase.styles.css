@@ -1,3 +1,8 @@
-
+.cocktailShowcase {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
 
 /*# sourceMappingURL=CocktailShowcase.styles.css.map */

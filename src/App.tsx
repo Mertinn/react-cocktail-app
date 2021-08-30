@@ -14,6 +14,7 @@ export interface ICocktail {
     strInstructions: string;
     strDrinkThumb: string;
     strImageAttribution: string;
+    [index: string]: string;
   };
 }
 
