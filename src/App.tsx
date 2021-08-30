@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import PageContainer from "./Components/PageContainer/PageContainer";
 import Sidebar from "./Components/Sidebar/Sidebar";
@@ -6,6 +6,7 @@ import CocktailsGrid from "./Components/CocktailsGrid/CocktailsGrid";
 import axios from "axios";
 import CocktailItem from "./Components/CocktailItem/CocktailItem";
 import CocktailShowcase from "./Components/CocktailShowcase/CocktailShowcase";
+import { throttle } from "lodash";
 
 export interface ICocktail {
   cocktail: {
@@ -27,15 +28,32 @@ function App() {
   const [selectedCocktail, setSelectedCocktail] = useState(-1);
   const [searchValue, setSearchValue] = useState("");
 
+  const searchThrottled = useRef(
+    throttle(async (query) => {
+      console.log("throtel");
+      const response = await axios.get(
+        `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`
+      );
+      const data = response.data;
+      setCocktails(data);
+    }, 1200)
+  );
+
   useEffect(() => {
     (async () => {
       const response = await axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=ma"
+        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
       );
       const data = response.data;
       setCocktails(data);
     })();
   }, []);
+
+  useEffect(() => {
+    if (searchValue.trim() !== "") {
+      searchThrottled.current(searchValue);
+    }
+  }, [searchValue]);
 
   return (
     <div className="App">
@@ -43,7 +61,7 @@ function App() {
         <Sidebar handleSearchChange={setSearchValue} />
         {selectedCocktail < 0 ? (
           <CocktailsGrid>
-            {Object.keys(cocktails).length > 0 &&
+            {cocktails.drinks ? (
               cocktails.drinks!.map(
                 (cocktail: ICocktail["cocktail"], index) => (
                   <CocktailItem
@@ -52,11 +70,14 @@ function App() {
                     onClick={() => setSelectedCocktail(index)}
                   />
                 )
-              )}
+              )
+            ) : (
+              <h1>No drinks</h1>
+            )}
           </CocktailsGrid>
         ) : (
           <>
-            {Object.keys(cocktails).length > 0 && (
+            {cocktails.drinks && (
               <CocktailShowcase
                 cocktail={cocktails.drinks![selectedCocktail]}
                 handleClose={() => setSelectedCocktail(-1)}
