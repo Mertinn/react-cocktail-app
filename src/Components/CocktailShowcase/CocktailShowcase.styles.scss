@@ -1,6 +1,30 @@
+@use "../Variables.scss" as v;
+
 .cocktailShowcase {
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  position: relative;
+
+  &__info {
+    background-color: v.$primary-color;
+    position: absolute;
+    bottom: 10%;
+    right: 8%;
+    padding: 3rem 2rem;
+    text-align: right;
+  }
+
+  &__name {
+    margin: 1rem 0;
+  }
+
+  &__closeButton {
+    position: absolute;
+    font-size: 1.5rem;
+    left: 1%;
+    top: 1%;
+    cursor: pointer;
+  }
 }

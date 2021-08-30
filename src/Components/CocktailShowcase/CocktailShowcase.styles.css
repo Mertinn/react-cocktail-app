@@ -3,6 +3,25 @@
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  position: relative;
+}
+.cocktailShowcase__info {
+  background-color: #f96160;
+  position: absolute;
+  bottom: 10%;
+  right: 8%;
+  padding: 3rem 2rem;
+  text-align: right;
+}
+.cocktailShowcase__name {
+  margin: 1rem 0;
+}
+.cocktailShowcase__closeButton {
+  position: absolute;
+  font-size: 1.5rem;
+  left: 1%;
+  top: 1%;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=CocktailShowcase.styles.css.map */

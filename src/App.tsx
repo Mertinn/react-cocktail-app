@@ -58,6 +58,7 @@ function App() {
             {Object.keys(cocktails).length > 0 && (
               <CocktailShowcase
                 cocktail={cocktails.drinks![selectedCocktail]}
+                handleClose={() => setSelectedCocktail(-1)}
               />
             )}
           </>

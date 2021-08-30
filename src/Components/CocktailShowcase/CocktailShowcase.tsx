@@ -1,8 +1,12 @@
 import React from "react";
-import { ICocktail as IProps } from "../../App";
+import { ICocktail } from "../../App";
 import "./CocktailShowcase.styles.css";
 
-const CocktailShowcase: React.FC<IProps> = ({ cocktail }) => {
+interface IProps extends ICocktail {
+  handleClose: () => void;
+}
+
+const CocktailShowcase: React.FC<IProps> = ({ cocktail, handleClose }) => {
   const ingredients = [];
   for (let i = 1; i < 16; i++) {
     if (!cocktail[`strIngredient${i}`]) {
@@ -15,11 +19,18 @@ const CocktailShowcase: React.FC<IProps> = ({ cocktail }) => {
       className={"cocktailShowcase"}
       style={{ backgroundImage: `url(${cocktail.strDrinkThumb})` }}
     >
-      <div className="cocktail__info">
-        <h1 className="cocktail__name">{cocktail.strDrink}</h1>
-        <ul className="cocktail__ingredients">
+      <div
+        className="cocktailShowcase__closeButton"
+        onClick={() => handleClose()}
+      >
+        x
+      </div>
+
+      <div className="cocktailShowcase__info">
+        <h1 className="cocktailShowcase__name">{cocktail.strDrink}</h1>
+        <ul className="cocktailShowcase__ingredients">
           {ingredients.map((ingredient, index) => (
-            <li className={"cocktail__ingredient"} key={index}>
+            <li className={"cocktailShowcase__ingredient"} key={index}>
               {ingredient}
             </li>
           ))}
