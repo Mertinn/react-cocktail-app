@@ -24,7 +24,8 @@ interface ICocktails {
 
 function App() {
   const [cocktails, setCocktails] = useState<ICocktails>({});
-  const [selectedCocktail, setSelectedCocktail] = useState<number>(-1);
+  const [selectedCocktail, setSelectedCocktail] = useState(-1);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
     (async () => {
@@ -39,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <PageContainer>
-        <Sidebar />
+        <Sidebar handleSearchChange={setSearchValue} />
         {selectedCocktail < 0 ? (
           <CocktailsGrid>
             {Object.keys(cocktails).length > 0 &&

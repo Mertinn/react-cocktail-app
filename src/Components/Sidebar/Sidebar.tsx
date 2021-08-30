@@ -1,12 +1,16 @@
 import React from "react";
 import "./Sidebar.styles.css";
-import Input from "../InputField/Input";
+import Input from "../Input/Input";
 
-const Sidebar = () => {
+export interface IProps {
+  handleSearchChange: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Sidebar: React.FC<IProps> = ({ handleSearchChange }) => {
   return (
     <div className={"sidebar"}>
       <div className="sidebar__header">
-        <Input placeholder={"Search"} />
+        <Input placeholder={"Search"} onChange={handleSearchChange} />
       </div>
 
       <ul className={"sidebar__list"}>
