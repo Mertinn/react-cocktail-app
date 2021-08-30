@@ -5,6 +5,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import CocktailsGrid from "./Components/CocktailsGrid/CocktailsGrid";
 import axios from "axios";
 import CocktailItem from "./Components/CocktailItem/CocktailItem";
+import CocktailShowcase from "./Components/CocktailShowcase/CocktailShowcase";
 
 export interface ICocktail {
   cocktail: {
@@ -22,7 +23,7 @@ interface ICocktails {
 
 function App() {
   const [cocktails, setCocktails] = useState<ICocktails>({});
-  const [selectedCocktail, setSelectedCocktail] = useState<number | null>(null);
+  const [selectedCocktail, setSelectedCocktail] = useState<number>(-1);
 
   useEffect(() => {
     (async () => {
@@ -38,7 +39,7 @@ function App() {
     <div className="App">
       <PageContainer>
         <Sidebar />
-        {!selectedCocktail ? (
+        {selectedCocktail < 0 ? (
           <CocktailsGrid>
             {Object.keys(cocktails).length > 0 &&
               cocktails.drinks!.map(
@@ -52,7 +53,13 @@ function App() {
               )}
           </CocktailsGrid>
         ) : (
-          <h1>selected - {selectedCocktail}</h1>
+          <>
+            {Object.keys(cocktails).length > 0 && (
+              <CocktailShowcase
+                cocktail={cocktails.drinks![selectedCocktail]}
+              />
+            )}
+          </>
         )}
       </PageContainer>
     </div>
