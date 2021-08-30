@@ -1,11 +1,12 @@
 .cocktail {
-  border-radius: 5px;
   overflow: hidden;
   height: fit-content;
+  cursor: pointer;
 }
 .cocktail__image {
   width: 100%;
   transition: 500ms;
+  border-radius: 5px;
 }
 .cocktail__name {
   font-size: 1rem;

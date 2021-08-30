@@ -22,6 +22,8 @@ interface ICocktails {
 
 function App() {
   const [cocktails, setCocktails] = useState<ICocktails>({});
+  const [selectedCocktail, setSelectedCocktail] = useState<number | null>(null);
+
   useEffect(() => {
     (async () => {
       const response = await axios.get(
@@ -36,12 +38,22 @@ function App() {
     <div className="App">
       <PageContainer>
         <Sidebar />
-        <CocktailsGrid>
-          {Object.keys(cocktails).length > 0 &&
-            cocktails.drinks!.map((cocktail: ICocktail["cocktail"]) => (
-              <CocktailItem cocktail={cocktail} key={cocktail.idDrink} />
-            ))}
-        </CocktailsGrid>
+        {!selectedCocktail ? (
+          <CocktailsGrid>
+            {Object.keys(cocktails).length > 0 &&
+              cocktails.drinks!.map(
+                (cocktail: ICocktail["cocktail"], index) => (
+                  <CocktailItem
+                    cocktail={cocktail}
+                    key={cocktail.idDrink}
+                    onClick={() => setSelectedCocktail(index)}
+                  />
+                )
+              )}
+          </CocktailsGrid>
+        ) : (
+          <h1>selected - {selectedCocktail}</h1>
+        )}
       </PageContainer>
     </div>
   );

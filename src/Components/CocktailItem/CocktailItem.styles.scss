@@ -1,12 +1,13 @@
 @use "../Variables.scss" as v;
 
 .cocktail {
-  border-radius: v.$border-radius;
   overflow: hidden;
   height: fit-content;
+  cursor: pointer;
   &__image {
     width: 100%;
     transition: 500ms;
+    border-radius: v.$border-radius;
   }
 
   &__name {

@@ -1,10 +1,14 @@
 import React from "react";
 import "./CocktailItem.styles.css";
-import { ICocktail as IProps } from "../../App";
+import { ICocktail } from "../../App";
 
-const CocktailItem: React.FC<IProps> = ({ cocktail }) => {
+interface IProps extends ICocktail {
+  onClick: () => void;
+}
+
+const CocktailItem: React.FC<IProps> = ({ cocktail, onClick }) => {
   return (
-    <div className={"cocktail"}>
+    <div className={"cocktail"} onClick={() => onClick()}>
       <div className="cocktail__content">
         <img
           className="cocktail__image"
