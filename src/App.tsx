@@ -40,19 +40,7 @@ function App() {
   );
 
   useEffect(() => {
-    (async () => {
-      const response = await axios.get(
-        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
-      );
-      const data = response.data;
-      setCocktails(data);
-    })();
-  }, []);
-
-  useEffect(() => {
-    if (searchValue.trim() !== "") {
-      searchThrottled.current(searchValue);
-    }
+    searchThrottled.current(searchValue);
   }, [searchValue]);
 
   return (
