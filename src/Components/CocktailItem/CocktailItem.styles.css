@@ -9,14 +9,20 @@
   border-radius: 5px;
 }
 .cocktail__name {
+  transition: 500ms;
   font-size: 1rem;
   font-weight: bold;
+  max-width: 100%;
 }
 .cocktail__header {
   background: white;
 }
 .cocktail:hover .cocktail__image {
   transform: scaleX(-1);
+}
+.cocktail:hover .cocktail__name {
+  letter-spacing: 7px;
+  font-size: 0.8rem;
 }
 
 /*# sourceMappingURL=CocktailItem.styles.css.map */
