@@ -29,4 +29,9 @@
     letter-spacing: 7px;
     font-size: 0.8rem;
   }
+  @media (max-width: 480px) {
+    &:not(:first-child) {
+      margin: 2rem 0;
+    }
+  }
 }

@@ -12,6 +12,7 @@
 @media (max-width: 480px) {
   .page__container {
     flex-direction: column;
+    height: 90vh;
   }
 }
 

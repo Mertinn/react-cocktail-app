@@ -8,7 +8,7 @@
 }
 @media (max-width: 480px) {
   .cocktails {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
