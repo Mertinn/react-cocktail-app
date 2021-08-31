@@ -20,17 +20,17 @@ export interface ICocktail {
 }
 
 interface ICocktails {
-  drinks?: [];
+  drinks?: [ICocktail["cocktail"]];
 }
 
 function App() {
   const [cocktails, setCocktails] = useState<ICocktails>({});
   const [selectedCocktail, setSelectedCocktail] = useState(-1);
   const [searchValue, setSearchValue] = useState("");
+  const [lastViewed, setLastViewed] = useState<ICocktail["cocktail"][]>([]);
 
   const searchThrottled = useRef(
     throttle(async (query) => {
-      console.log("throtel");
       const response = await axios.get(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`
       );
@@ -43,10 +43,17 @@ function App() {
     searchThrottled.current(searchValue);
   }, [searchValue]);
 
+  const handleCocktailClick = (index: number) => {
+    setSelectedCocktail(index);
+    let newLastViewed = [cocktails.drinks![index], ...lastViewed];
+    newLastViewed = newLastViewed.slice(0, 9);
+    setLastViewed(newLastViewed);
+  };
+
   return (
     <div className="App">
       <PageContainer>
-        <Sidebar handleSearchChange={setSearchValue} />
+        <Sidebar handleSearchChange={setSearchValue} lastViewed={lastViewed} />
         {selectedCocktail < 0 ? (
           <CocktailsGrid>
             {cocktails.drinks ? (
@@ -55,7 +62,7 @@ function App() {
                   <CocktailItem
                     cocktail={cocktail}
                     key={cocktail.idDrink}
-                    onClick={() => setSelectedCocktail(index)}
+                    onClick={() => handleCocktailClick(index)}
                   />
                 )
               )

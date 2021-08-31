@@ -9,5 +9,10 @@
   transform: translateX(-50%) translateY(-50%);
   display: flex;
 }
+@media (max-width: 480px) {
+  .page__container {
+    flex-direction: column;
+  }
+}
 
 /*# sourceMappingURL=PageContainer.styles.css.map */

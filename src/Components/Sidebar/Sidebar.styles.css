@@ -5,12 +5,19 @@
   min-width: 30%;
   text-align: center;
 }
-.sidebar__list {
-  display: inline-block;
-  text-align: left;
+.sidebar__item {
+  margin: 2rem 0;
 }
 .sidebar__header {
   margin: 3rem 0;
+}
+@media (max-width: 480px) {
+  .sidebar__list {
+    display: none;
+  }
+  .sidebar__header {
+    margin: 1rem 0;
+  }
 }
 
 /*# sourceMappingURL=Sidebar.styles.css.map */

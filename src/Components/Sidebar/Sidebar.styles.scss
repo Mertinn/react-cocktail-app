@@ -7,12 +7,20 @@
   min-width: 30%;
   text-align: center;
 
-  &__list {
-    display: inline-block;
-    text-align: left;
+  &__item {
+    margin: 2rem 0;
   }
 
   &__header {
     margin: 3rem 0;
+  }
+
+  @media (max-width: 480px) {
+    &__list {
+      display: none;
+    }
+    &__header {
+      margin: 1rem 0;
+    }
   }
 }
