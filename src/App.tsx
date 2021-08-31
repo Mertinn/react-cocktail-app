@@ -41,6 +41,7 @@ function App() {
 
   useEffect(() => {
     searchThrottled.current(searchValue);
+    setSelectedCocktail(-1);
   }, [searchValue]);
 
   const handleCocktailClick = (index: number) => {
