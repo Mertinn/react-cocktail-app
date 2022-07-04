@@ -8,7 +8,7 @@ input {
   padding: 0.5rem;
   font-size: 1.2rem;
   transition: 200ms;
-  max-width: 80%;
+  max-width: 100%;
 }
 input::placeholder {
   color: rgba(255, 255, 255, 0.47);
